@@ -1,17 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, hashHistory } from 'react-router'
-import App from './modules/App'
-import About from './modules/About'
-import Repos from './modules/Repos'
-import Repo from './modules/Repo'
+import { Router, browserHistory } from 'react-router'
+// import routes and pass them into <Router/>
+import routes from './modules/routes'
 
-render((
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Route path="/repos" component={Repos}/>
-      <Route path="/repos/:userName/:repoName" component={Repo}/>
-      <Route path="/about" component={About}/>
-    </Route>
-  </Router>
-), document.getElementById('app'))
+render(
+  <Router routes={routes} history={browserHistory}/>,
+  document.getElementById('app')
+)
